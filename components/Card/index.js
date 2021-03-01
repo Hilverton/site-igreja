@@ -1,6 +1,6 @@
 export default function Card() {
   return (
-    <div className='h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden'>
+    <div className='h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white'>
       <img
         className='lg:h-48 md:h-36 w-full object-cover object-center'
         src='https://dummyimage.com/720x400'
