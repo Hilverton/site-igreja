@@ -10,9 +10,9 @@ export default function Home() {
             <span className='text-lg'>Ver todos</span>
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
-            <Card />
-            <Card />
-            <Card />
+            <Card title='Culto de Senhoras' />
+            <Card title='Culto de Doutrina' />
+            <Card title='Culto Evangelístico' />
           </div>
         </section>
       </div>

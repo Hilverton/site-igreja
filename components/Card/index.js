@@ -1,4 +1,4 @@
-export default function Card() {
+export default function Card({ title }) {
   return (
     <div className='h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white'>
       <img
@@ -8,7 +8,7 @@ export default function Card() {
       />
       <div className='p-6'>
         <h1 className='title-font text-lg font-medium text-gray-900 mb-3'>
-          Culto de Doutrina
+          {title}
         </h1>
         <p className='leading-relaxed mb-3'>
           Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
