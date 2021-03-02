@@ -1,8 +1,35 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+const urls = [
+  {
+    id: 1,
+    path: '/',
+    title: 'Início',
+  },
+  {
+    id: 2,
+    path: '/departamentos',
+    title: 'Departamentos',
+  },
+  {
+    id: 3,
+    path: '/ebd',
+    title: 'Ebd',
+  },
+  {
+    id: 4,
+    path: '/noticias',
+    title: 'Notícias',
+  },
+];
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
-
+  const router = useRouter();
+  const activeRoute = router.route;
+  console.log(activeRoute);
   const isOpen = openMenu ? 'h-52 mt-3' : 'h-0';
 
   return (
@@ -21,18 +48,22 @@ export default function Navbar() {
               openMenu ? 'flex-col space-y-4' : 'hidden'
             } w-full md:w-min md:flex md:space-x-4`}
           >
-            <li className='p-2 md:px-5 rounded-lg uppercase text-white hover:text-black hover:bg-white duration-300 cursor-pointer'>
-              Início
-            </li>
-            <li className='p-2 md:px-5 rounded-lg uppercase text-white hover:text-black hover:bg-white duration-300 cursor-pointer'>
-              Departamentos
-            </li>
-            <li className='p-2 md:px-5 rounded-lg uppercase text-white hover:text-black hover:bg-white duration-300 cursor-pointer'>
-              Ebd
-            </li>
-            <li className='p-2 md:px-5 rounded-lg uppercase text-white hover:text-black hover:bg-white duration-300 cursor-pointer'>
-              Notícias
-            </li>
+            {urls.map((url) => {
+              const active =
+                router.route === url.path
+                  ? 'bg-white text-black'
+                  : 'text-white hover:text-black hover:bg-white';
+              return (
+                <li
+                  key={url.id}
+                  className={`${active} p-2 md:px-5 rounded-lg uppercase duration-300 cursor-pointer`}
+                >
+                  <Link href={url.path}>
+                    <a>{url.title}</a>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </nav>
