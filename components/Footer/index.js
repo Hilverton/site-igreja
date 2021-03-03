@@ -1,3 +1,6 @@
+import Image from 'next/Image';
+import { linksSocials } from '../../utils';
+
 export default function Footer() {
   return (
     <footer className='p-4 bg-gradient-to-l to-my-blue from-my-green font-sans w-full'>
@@ -10,15 +13,23 @@ export default function Footer() {
         <div>
           <h3 className='text-2xl text-white mb-8'>Nossas mídias</h3>
           <ul className='space-x-4 flex justify-center items-center'>
-            <li className='p-3 rounded-lg h-12 bg-white cursor-pointer flex justify-center items-center'>
-              <img className='h-9' src='/assets/socials/youtube_logo.png' />
-            </li>
-            <li className='p-3 rounded-lg h-12 text-center bg-white cursor-pointer flex justify-center items-center'>
-              <img className='h-9' src='/assets/socials/instagram_logo.png' />
-            </li>
-            <li className='p-3 rounded-lg h-12 bg-white cursor-pointer flex justify-center items-center'>
-              <img className='h-9' src='/assets/socials/f_logo.png' />
-            </li>
+            {linksSocials.map((linkSocial) => (
+              <li
+                key={linkSocial.id}
+                className='p-3 rounded-lg h-12 bg-white cursor-pointer flex justify-center items-center'
+              >
+                <a href={linkSocial.url} target='_blank'>
+                  <figure className='h-9'>
+                    <Image
+                      src={linkSocial.img}
+                      alt={linkSocial.alt}
+                      height={36}
+                      width={36}
+                    />
+                  </figure>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
