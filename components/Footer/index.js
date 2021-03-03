@@ -1,4 +1,4 @@
-import Image from 'next/Image';
+import Image from 'next/image';
 import { linksSocials } from '../../utils';
 
 export default function Footer() {
