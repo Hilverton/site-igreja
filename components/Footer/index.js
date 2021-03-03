@@ -18,7 +18,7 @@ export default function Footer() {
                 key={linkSocial.id}
                 className='p-3 rounded-lg h-12 bg-white cursor-pointer flex justify-center items-center'
               >
-                <a href={linkSocial.url} target='_blank'>
+                <a href={linkSocial.url} target='_blank' rel='noopener'>
                   <figure className='h-9'>
                     <Image
                       src={linkSocial.img}
