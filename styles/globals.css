@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.content p {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
