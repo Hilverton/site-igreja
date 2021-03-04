@@ -6,6 +6,11 @@ export default function Departamentos() {
     <>
       <Head>
         <title>IEADAL-BB2 | Nossos departamentos</title>
+        <meta
+          name='og:description'
+          content='Confira os departamentos/ministérios que compõem nossa igreja.'
+          key='ogdesc'
+        />
       </Head>
       <Layout>
         <section className='w-11/12 mx-auto py-6'>

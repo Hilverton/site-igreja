@@ -9,6 +9,12 @@ export default function Noticias({ posts }) {
     <>
       <Head>
         <title>IEADAL-BB2 | Notícias</title>
+        <meta property='og:title' content='Notícias' key='ogtitle' />
+        <meta
+          name='og:description'
+          content='Listagem das nossas notícias, postagens e eventos.'
+          key='ogdesc'
+        />
       </Head>
       <Layout>
         <section className='w-11/12 mx-auto py-6'>
@@ -28,6 +34,7 @@ export default function Noticias({ posts }) {
                 );
               })}
             </div>
+            <div className='bg-red-400 h-10 w-full'></div>
           </div>
         </section>
       </Layout>

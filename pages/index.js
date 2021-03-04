@@ -10,6 +10,11 @@ export default function Home({ posts }) {
     <>
       <Head>
         <title>Igreja Assembleia de Deus no Benedito Bentes 2</title>
+        <meta
+          name='og:description'
+          content='Página inicial da Assembleia de Deus no Benedito Bentes 2. Confira nossos eventos, nossas postagens, horários e dias de cultos.'
+          key='ogdesc'
+        />
       </Head>
       <Layout>
         <div className='w-11/12 mx-auto py-2'>

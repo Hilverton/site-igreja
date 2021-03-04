@@ -6,6 +6,11 @@ export default function Ebd() {
     <>
       <Head>
         <title>IEADAL-BB2 | Lições EBD</title>
+        <meta
+          name='og:description'
+          content='Lições da Escola Bíblica Dominical'
+          key='ogdesc'
+        />
       </Head>
       <Layout>
         <section className='w-11/12 mx-auto py-6'>

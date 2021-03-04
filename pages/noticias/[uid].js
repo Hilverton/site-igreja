@@ -5,11 +5,21 @@ import { RichText } from 'prismic-reactjs';
 import { client } from '../../prismic-configuration';
 
 export default function Noticia({ post, posts }) {
-  console.log('uid', post);
   return (
     <>
       <Head>
         <title>IEADAL-BB2 | Notícia</title>
+        <meta property='og:image' content={post.data.image.url} key='ogimage' />
+        <meta
+          property='og:title'
+          content={post.data.titulo[0].text}
+          key='ogtitle'
+        />
+        <meta
+          name='og:description'
+          content={post.data.descricao[0].text}
+          key='ogdesc'
+        />
       </Head>
       <Layout>
         <section className='w-11/12 mx-auto py-6'>
@@ -38,21 +48,25 @@ export default function Noticia({ post, posts }) {
                 <span className='ml-4'>{post.data.nome_do_autor[0].text}</span>
               </div>
             </div>
-            <div className='grid grid-cols-1 grid-rows-1 gap-6'>
+            <div className='grid grid-cols-1 auto-rows-auto'>
               <h1 className='font-bold text-xl'>Relacionados</h1>
-              {posts.results.map((post) => {
-                console.log('uid correto', post.data.uid);
-                return (
-                  <Card
-                    key={post.id}
-                    title={post.data.titulo[0].text}
-                    description={post.data.descricao[0].text}
-                    imgUrl={post.data.image.url}
-                    altImg={post.data.image.alt}
-                    slug={post.uid}
-                  />
-                );
-              })}
+              {posts.length !== 0 ? (
+                posts.results.map((post) => {
+                  console.log('uid correto', post.data.uid);
+                  return (
+                    <Card
+                      key={post.id}
+                      title={post.data.titulo[0].text}
+                      description={post.data.descricao[0].text}
+                      imgUrl={post.data.image.url}
+                      altImg={post.data.image.alt}
+                      slug={post.uid}
+                    />
+                  );
+                })
+              ) : (
+                <h1 className='text-lg mx-auto'>Sem conteúdo relacionado</h1>
+              )}
             </div>
           </div>
         </section>
@@ -85,7 +99,7 @@ export const getStaticProps = async ({ params }) => {
   });
 
   const posts = await client.query(
-    Prismic.Predicates.at('document.type', 'blog_post'),
+    Prismic.Predicates.not('my.blog_post.uid', params.uid),
     { orderings: '[my.post.date desc]', pageSize: 2 },
   );
 
