@@ -1,10 +1,17 @@
 import Link from 'next/link';
 
-export default function Card({ title, imgUrl, altImg, description, big }) {
+export default function Card({
+  title,
+  imgUrl,
+  altImg,
+  description,
+  slug,
+  big,
+}) {
   const isBig = big ? 'md:flex md:p-6 ' : 'h-full';
   const imgRounded = big && 'md:rounded-lg';
   const body = big ? 'p-6 md:py-2 md:pl-6 md:pr-3' : 'p-6';
-  const slug = title.toLowerCase().replace(/ /g, '-');
+
   return (
     <div
       className={`${isBig} border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white`}

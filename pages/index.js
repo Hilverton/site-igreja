@@ -22,6 +22,7 @@ export default function Home({ posts }) {
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
               {posts.results.map((post) => {
+                console.log('uid correto', post.data.uid);
                 return (
                   <Card
                     key={post.id}
@@ -29,6 +30,7 @@ export default function Home({ posts }) {
                     description={post.data.descricao[0].text}
                     imgUrl={post.data.image.url}
                     altImg={post.data.image.alt}
+                    slug={post.uid}
                   />
                 );
               })}
