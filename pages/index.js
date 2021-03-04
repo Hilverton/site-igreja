@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import { Card, Layout } from '../components';
+import Prismic from 'prismic-javascript';
+import { client } from '../prismic-configuration';
 
-export default function Home() {
+export default function Home({ posts }) {
+  console.log('home', posts);
   return (
     <>
       <Head>
@@ -25,3 +28,16 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const posts = await client.query(
+    Prismic.Predicates.at('document.type', 'blog_post'),
+    { orderings: '[my.post.date desc]', pageSize: 3 },
+  );
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
