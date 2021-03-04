@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { Card, Layout } from '../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../prismic-configuration';
@@ -15,12 +16,22 @@ export default function Home({ posts }) {
           <section className='mb-6'>
             <div className='flex justify-between items-center mb-6'>
               <h1 className='text-3xl'>Últimas notícias</h1>
-              <span className='text-lg'>Ver todos</span>
+              <Link href='/noticias'>
+                <a className='text-lg'>Ver todos</a>
+              </Link>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
-              <Card title='Culto de Senhoras' />
-              <Card title='Culto de Doutrina' />
-              <Card title='Culto Evangelístico' />
+              {posts.results.map((post) => {
+                return (
+                  <Card
+                    key={post.id}
+                    title={post.data.titulo[0].text}
+                    description={post.data.descricao[0].text}
+                    imgUrl={post.data.image.url}
+                    altImg={post.data.image.alt}
+                  />
+                );
+              })}
             </div>
           </section>
         </div>
