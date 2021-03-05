@@ -4,7 +4,6 @@ import Prismic from 'prismic-javascript';
 import { client } from '../../prismic-configuration';
 
 export default function Noticias({ posts }) {
-  console.log('noticias', posts);
   return (
     <>
       <Head>
@@ -34,7 +33,6 @@ export default function Noticias({ posts }) {
                 );
               })}
             </div>
-            <div className='bg-red-400 h-10 w-full'></div>
           </div>
         </section>
       </Layout>
@@ -47,6 +45,8 @@ export const getServerSideProps = async () => {
     Prismic.Predicates.at('document.type', 'blog_post'),
     { orderings: '[my.post.date desc]' },
   );
+
+  console.log('posts', posts);
 
   return {
     props: {
