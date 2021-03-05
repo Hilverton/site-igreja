@@ -48,25 +48,27 @@ export default function Noticia({ post, posts }) {
                 <span className='ml-4'>{post.data.nome_do_autor[0].text}</span>
               </div>
             </div>
-            <div className='grid grid-cols-1 auto-rows-auto'>
-              <h1 className='font-bold text-xl'>Relacionados</h1>
-              {posts.length !== 0 ? (
-                posts.results.map((post) => {
-                  console.log('uid correto', post.data.uid);
-                  return (
-                    <Card
-                      key={post.id}
-                      title={post.data.titulo[0].text}
-                      description={post.data.descricao[0].text}
-                      imgUrl={post.data.image.url}
-                      altImg={post.data.image.alt}
-                      slug={post.uid}
-                    />
-                  );
-                })
-              ) : (
-                <h1 className='text-lg mx-auto'>Sem conteúdo relacionado</h1>
-              )}
+            <div className='flex flex-col'>
+              <h1 className='font-bold text-xl mb-6'>Relacionados</h1>
+              <div className='grid grid-rows-1 gap-6'>
+                {posts.length !== 0 ? (
+                  posts.results.map((post) => {
+                    console.log('uid correto', post.data.uid);
+                    return (
+                      <Card
+                        key={post.id}
+                        title={post.data.titulo[0].text}
+                        description={post.data.descricao[0].text}
+                        imgUrl={post.data.image.url}
+                        altImg={post.data.image.alt}
+                        slug={post.uid}
+                      />
+                    );
+                  })
+                ) : (
+                  <h1 className='text-lg mx-auto'>Sem conteúdo relacionado</h1>
+                )}
+              </div>
             </div>
           </div>
         </section>
