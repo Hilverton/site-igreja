@@ -33,7 +33,7 @@ export default function Navbar() {
   const isOpen = openMenu ? 'h-52 mt-3' : 'h-0';
 
   return (
-    <header className='p-4 bg-gradient-to-l to-my-blue from-my-green font-sans fixed top-0 w-full'>
+    <header className='p-4 bg-gradient-to-l to-my-blue from-my-green font-sans fixed z-50 top-0 w-full'>
       <nav className='flex-col md:flex-row w-full md:inline-flex md:items-center md:justify-between text-white'>
         <img src='/assets/Logo_Ieadal.png' className='h-12' alt='Logo igreja' />
         <span

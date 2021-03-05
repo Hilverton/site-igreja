@@ -53,7 +53,6 @@ export default function Noticia({ post, posts }) {
               <div className='grid grid-rows-1 gap-6'>
                 {posts.length !== 0 ? (
                   posts.results.map((post) => {
-                    console.log('uid correto', post.data.uid);
                     return (
                       <Card
                         key={post.id}
@@ -96,6 +95,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
+  console.log('uid?', params.uid);
   const post = await client.getByUID('blog_post', `${params.uid}`, {
     lang: 'pt-br',
   });
@@ -108,7 +108,7 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       post,
-      posts,
+      posts: [],
     },
   };
 };

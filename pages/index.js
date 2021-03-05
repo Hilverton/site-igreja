@@ -3,9 +3,18 @@ import Link from 'next/link';
 import { Card, Layout } from '../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../prismic-configuration';
+import Slider from 'react-slick';
 
-export default function Home({ posts }) {
-  console.log('home', posts);
+export default function Home({ posts, carousel }) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
+  console.log('home', carousel);
   return (
     <>
       <Head>
@@ -18,6 +27,22 @@ export default function Home({ posts }) {
       </Head>
       <Layout>
         <div className='w-11/12 mx-auto py-2'>
+          <section className='w-full z-0 rounded-lg overflow-hidden my-6'>
+            <Slider {...settings}>
+              {carousel.results.map((banner) => (
+                <figure
+                  key={banner.id}
+                  className='w-full rounded-lg overflow-hidden'
+                >
+                  <img
+                    className='w-full'
+                    src={banner.data.banner.url}
+                    alt={banner.data.banner.alt}
+                  />
+                </figure>
+              ))}
+            </Slider>
+          </section>
           <section className='mb-6'>
             <div className='flex justify-between items-center mb-6'>
               <h1 className='text-3xl'>Últimas notícias</h1>
@@ -27,7 +52,6 @@ export default function Home({ posts }) {
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
               {posts.results.map((post) => {
-                console.log('uid correto', post.data.uid);
                 return (
                   <Card
                     key={post.id}
@@ -48,6 +72,10 @@ export default function Home({ posts }) {
 }
 
 export const getStaticProps = async () => {
+  const carousel = await client.query(
+    Prismic.Predicates.at('document.type', 'carousel'),
+    { orderings: '[my.post.date desc]' },
+  );
   const posts = await client.query(
     Prismic.Predicates.at('document.type', 'blog_post'),
     { orderings: '[my.post.date desc]', pageSize: 3 },
@@ -56,6 +84,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       posts,
+      carousel,
     },
   };
 };
