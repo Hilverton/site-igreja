@@ -8,7 +8,7 @@ export default function Noticia({ post, posts }) {
   return (
     <>
       <Head>
-        <title>IEADAL-BB2 | Notícia</title>
+        <title>IEADAL-BB2 | Notícia - {post.data.titulo[0].text}</title>
         <meta property='og:image' content={post.data.image.url} key='ogimage' />
         <meta
           property='og:title'
@@ -23,7 +23,7 @@ export default function Noticia({ post, posts }) {
       </Head>
       <Layout>
         <section className='w-11/12 mx-auto py-6'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 space-y-6 md:space-y-0 md:gap-6'>
             <div className='col-span-2 content'>
               <h1 className='font-bold text-2xl mb-2'>
                 {post.data.titulo[0].text}
@@ -37,7 +37,7 @@ export default function Noticia({ post, posts }) {
                 />
               </figure>
               <RichText render={post.data.conteudo} />
-              <div className='flex items-center'>
+              <div className='flex items-center bg-white rounded-md p-4 border-2 border-gray-200 border-opacity-60'>
                 <figure>
                   <img
                     className='w-10 h-10 rounded-full'
@@ -50,7 +50,7 @@ export default function Noticia({ post, posts }) {
             </div>
             <div className='flex flex-col'>
               <h1 className='font-bold text-xl mb-6'>Relacionados</h1>
-              <div className='grid grid-rows-1 gap-6'>
+              <div className='grid grid-cols-1 md:grid-rows-1 gap-6'>
                 {posts.length !== 0 ? (
                   posts.results.map((post) => {
                     return (
@@ -95,20 +95,21 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  console.log('uid?', params.uid);
   const post = await client.getByUID('blog_post', `${params.uid}`, {
     lang: 'pt-br',
   });
 
   const posts = await client.query(
-    Prismic.Predicates.not('my.blog_post.uid', params.uid),
+    [
+      Prismic.Predicates.at('document.type', 'blog_post'),
+      Prismic.Predicates.not('my.blog_post.uid', `${params.uid}`),
+    ],
     { orderings: '[my.post.date desc]', pageSize: 2 },
   );
-
   return {
     props: {
       post,
-      posts: [],
+      posts,
     },
   };
 };
