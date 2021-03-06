@@ -28,8 +28,6 @@ const urls = [
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const router = useRouter();
-  const activeRoute = router.route;
-  console.log(activeRoute);
   const isOpen = openMenu ? 'h-52 mt-3' : 'h-0';
 
   return (
@@ -49,10 +47,13 @@ export default function Navbar() {
             } w-full md:w-min md:flex md:space-x-4`}
           >
             {urls.map((url) => {
+              const routeMain = router.route.split('/')[1];
+              const routeLink = url.path.split('/')[1];
               const active =
-                router.route === url.path
+                routeMain === routeLink
                   ? 'bg-white text-black'
                   : 'text-white hover:text-black hover:bg-white';
+
               return (
                 <li
                   key={url.id}
