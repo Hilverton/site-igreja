@@ -17,9 +17,9 @@ export default function Card({
       className={`${isBig} border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white`}
     >
       <figure
-        className={`lg:h-48 md:h-36 w-full object-cover object-center ${imgRounded} overflow-hidden`}
+        className={`h-auto max-h-64 min-w-min max-w-md ${imgRounded} overflow-hidden`}
       >
-        <img className='w-full h-full' src={imgUrl} alt={altImg} />
+        <img className='w-full h-full object-fill' src={imgUrl} alt={altImg} />
       </figure>
       <div className={body}>
         <h1 className='title-font text-lg font-medium text-gray-900 mb-3'>
