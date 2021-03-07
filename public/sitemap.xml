@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://adbeneditobentes2.vercel.app/</loc>
+  <lastmod>2021-03-07T01:09:25+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://adbeneditobentes2.vercel.app/departamentos</loc>
+  <lastmod>2021-03-07T01:09:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://adbeneditobentes2.vercel.app/ebd</loc>
+  <lastmod>2021-03-07T01:09:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://adbeneditobentes2.vercel.app/noticias</loc>
+  <lastmod>2021-03-07T01:09:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://adbeneditobentes2.vercel.app/noticias/projeto-salvando-vidas</loc>
+  <lastmod>2021-03-07T01:09:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://adbeneditobentes2.vercel.app/noticias/encontro-de-jovens-do-polo-2-da-11%C2%BA-regiao</loc>
+  <lastmod>2021-03-07T01:09:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://adbeneditobentes2.vercel.app/noticias/culto-de-senhoras-fevereiro</loc>
+  <lastmod>2021-03-07T01:09:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://adbeneditobentes2.vercel.app/noticias/culto-de-santa-ceia</loc>
+  <lastmod>2021-03-07T01:09:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
