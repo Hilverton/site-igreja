@@ -37,6 +37,28 @@ export default function Noticia({ post, posts }) {
                 />
               </figure>
               <RichText render={post.data.conteudo} />
+              <div className='flex items-center my-4 space-x-6'>
+                {post.data.photos_link.url !== undefined && (
+                  <a
+                    href={post.data.photos_link.url}
+                    className='py-2 px-6 rounded-md bg-gradient-to-l to-my-blue from-my-green text-white'
+                    target='_blank'
+                    rel='noopener'
+                  >
+                    Galeria
+                  </a>
+                )}
+                {post.data.youtube_link.url !== undefined && (
+                  <a
+                    href={post.data.youtube_link.url}
+                    className='py-2 px-6 rounded-md bg-gradient-to-l to-my-blue from-my-green text-white'
+                    target='_blank'
+                    rel='noopener'
+                  >
+                    Culto
+                  </a>
+                )}
+              </div>
               <div className='flex items-center bg-white rounded-md p-4 border-2 border-gray-200 border-opacity-60'>
                 <figure>
                   <img
