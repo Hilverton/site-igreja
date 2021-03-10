@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow:
+
+Sitemap: https://adbeneditobentes2.vercel.app/sitemap.xml
