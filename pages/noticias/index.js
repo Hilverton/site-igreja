@@ -43,7 +43,7 @@ export default function Noticias({ posts }) {
 export const getServerSideProps = async () => {
   const posts = await client.query(
     Prismic.Predicates.at('document.type', 'blog_post'),
-    { orderings: '[my.post.date desc]' },
+    { orderings: '[document.first_publication_date desc]' },
   );
 
   console.log('posts', posts);

@@ -126,7 +126,7 @@ export const getStaticProps = async ({ params }) => {
       Prismic.Predicates.at('document.type', 'blog_post'),
       Prismic.Predicates.not('my.blog_post.uid', `${params.uid}`),
     ],
-    { orderings: '[my.post.date desc]', pageSize: 2 },
+    { orderings: '[document.first_publication_date desc]', pageSize: 2 },
   );
   return {
     props: {

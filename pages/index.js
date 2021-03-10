@@ -78,7 +78,7 @@ export const getStaticProps = async () => {
   );
   const posts = await client.query(
     Prismic.Predicates.at('document.type', 'blog_post'),
-    { orderings: '[my.post.date desc]', pageSize: 3 },
+    { orderings: '[document.first_publication_date desc]', pageSize: 3 },
   );
 
   return {
