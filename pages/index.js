@@ -14,7 +14,7 @@ export default function Home({ posts, carousel }) {
     slidesToScroll: 1,
     autoplay: true,
   };
-  console.log('home', carousel);
+
   return (
     <>
       <Head>

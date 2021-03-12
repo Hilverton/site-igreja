@@ -51,9 +51,6 @@ const filters = [
 export default function Noticias({ posts, search }) {
   const router = useRouter();
   const [filt, setFilt] = useState(filter);
-  console.log('noticias', posts);
-  console.log('search', search);
-  console.log(filt);
 
   function filter() {
     let nFilter = filters;
@@ -91,7 +88,6 @@ export default function Noticias({ posts, search }) {
     const { name, value } = e.target;
     console.log(name, value);
     let newFilt = filt;
-    console.log('handleCheckbox', newFilt);
     newFilt.map((nfilt) => {
       if (nfilt.name === name) {
         nfilt.value = !nfilt.value;
@@ -194,8 +190,6 @@ export const getServerSideProps = async (context) => {
       { orderings: '[document.first_publication_date desc]' },
     );
   }
-
-  console.log('posts', posts);
 
   return {
     props: {
