@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card, Layout } from '../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../prismic-configuration';
 import Slider from 'react-slick';
 
-export default function Home({ posts, carousel }) {
+export default function Home({ posts, carousel, souls }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -26,8 +27,8 @@ export default function Home({ posts, carousel }) {
         />
       </Head>
       <Layout>
-        <div className='w-11/12 mx-auto py-2'>
-          <section className='w-full z-0 rounded-lg overflow-hidden my-6'>
+        <div className='w-full py-2'>
+          <section className='z-0 rounded-lg w-11/12 mx-auto overflow-hidden my-6'>
             <Slider {...settings}>
               {carousel.results.map((banner) => (
                 <figure
@@ -43,7 +44,27 @@ export default function Home({ posts, carousel }) {
               ))}
             </Slider>
           </section>
-          <section className='mb-6'>
+          <section className='mb-6 w-full bg-gradient-to-l to-my-orange from-my-yellow py-8'>
+            <div className='w-11/12 mx-auto flex flex-col md:flex-row md:justify-between items-center'>
+              <div className='w-full order-2 md:order-1 text-8xl md:w-1/2'>
+                <p className='text-white text-center text-2xl md:text-4xl'>
+                  {souls.results[0].data.numero} almas alcançadas
+                  <br />
+                  Faltam {50 - souls.results[0].data.numero} almas
+                </p>
+              </div>
+              <div className='relative order-1 md:order-2 mb-6 md:mb-0 w-full md:w-1/2 h-40'>
+                <Image
+                  src='/assets/projeto.png'
+                  alt='Logo projeto'
+                  layout='fill'
+                  objectFit='contain'
+                  className='w-full'
+                />
+              </div>
+            </div>
+          </section>
+          <section className='mb-6 w-11/12 mx-auto'>
             <div className='flex justify-between items-center mb-6'>
               <h1 className='text-3xl'>Últimas notícias</h1>
               <Link href='/noticias'>
@@ -81,10 +102,15 @@ export const getStaticProps = async () => {
     { orderings: '[document.first_publication_date desc]', pageSize: 3 },
   );
 
+  const souls = await client.query(
+    Prismic.Predicates.at('document.type', 'project'),
+  );
+
   return {
     props: {
       posts,
       carousel,
+      souls,
     },
   };
 };
