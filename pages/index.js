@@ -35,10 +35,13 @@ export default function Home({ posts, carousel, souls }) {
                   key={banner.id}
                   className='w-full rounded-lg overflow-hidden'
                 >
-                  <img
+                  <Image
                     className='w-full'
                     src={banner.data.banner.url}
                     alt={banner.data.banner.alt}
+                    layout='responsive'
+                    height={695}
+                    width={1237}
                   />
                 </figure>
               ))}

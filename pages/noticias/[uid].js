@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { Layout, Card } from '../../components';
 import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
@@ -30,10 +31,13 @@ export default function Noticia({ post, posts }) {
               </h1>
               <span>{post.data.descricao[0].text}</span>
               <figure className='my-4 rounded-lg overflow-hidden'>
-                <img
+                <Image
                   className='w-full h-full'
                   src={post.data.image.url}
                   alt='blog'
+                  layout='responsive'
+                  height={458}
+                  width={816}
                 />
               </figure>
               <RichText render={post.data.conteudo} />
