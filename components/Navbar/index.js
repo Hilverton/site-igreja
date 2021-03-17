@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const urls = [
   {
@@ -31,11 +32,15 @@ export default function Navbar() {
   const isOpen = openMenu ? 'h-52 mt-3' : 'h-0';
 
   return (
-    <header className='p-4 bg-gradient-to-l to-my-blue from-my-green font-sans fixed z-50 top-0 w-full'>
-      <nav className='flex-col md:flex-row w-full md:inline-flex md:items-center md:justify-between text-white'>
-        <img src='/assets/Logo_Ieadal.png' className='h-12' alt='Logo igreja' />
+    <header className='py-4 bg-gradient-to-l to-my-blue from-my-green font-sans fixed z-50 top-0 w-full'>
+      <nav className='flex-col md:flex-row md:flex md:items-center md:justify-between text-white w-11/12 mx-auto'>
+        <img
+          src='/assets/Logo_ad_local.png'
+          className='h-14 lg:h-20'
+          alt='Logo igreja'
+        />
         <span
-          className='material-icons absolute top-5 right-4 md:hidden text-3xl'
+          className='material-icons absolute top-6 right-4 md:hidden text-3xl'
           onClick={() => setOpenMenu(!openMenu)}
         >
           menu
