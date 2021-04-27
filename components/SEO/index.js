@@ -5,7 +5,7 @@ export default function SEO({ title, description, image = '', link }) {
 
   return (
     <Head>
-      <title>{pageTitle}</title>
+      <title>AD Benedito Bentes 2 | {pageTitle}</title>
       <link rel='canonical' href={link} />
       <meta httpEquiv='Content-Language' content='pt-br' />
       <meta httpEquiv='x-ua-compatible' content='IE=edge,chrome=1' />

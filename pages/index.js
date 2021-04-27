@@ -20,7 +20,7 @@ export default function Home({ posts, carousel, souls }) {
   return (
     <>
       <SEO
-        title='IEADAL-BB2 | Igreja Assembleia de Deus no Benedito Bentes 2'
+        title='Página inicial'
         description='Página inicial da Assembleia de Deus no Benedito Bentes 2. Confira nossos eventos, nossas postagens, horários e dias de cultos.'
         link={link}
       />

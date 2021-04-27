@@ -6,7 +6,7 @@ export default function Ebd() {
   return (
     <>
       <SEO
-        title='IEADAL-BB2 | Escola Bíblica Dominical'
+        title='Escola Bíblica Dominical'
         description='Tudo sobre os eventos e principais acontecimentos da nossa escola bíblica dominical.'
         link={link}
       />

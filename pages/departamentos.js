@@ -6,7 +6,7 @@ export default function Departamentos() {
   return (
     <>
       <SEO
-        title='IEADAL-BB2 | Nossos departamentos'
+        title='Nossos departamentos'
         description='Confira os departamentos/ministérios que compõem nossa igreja.'
         link={link}
       />

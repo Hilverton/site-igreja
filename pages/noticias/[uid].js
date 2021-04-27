@@ -9,7 +9,7 @@ export default function Noticia({ post, posts }) {
   return (
     <>
       <SEO
-        title={`IEADAL-BB2 | Notícia - ${post.data.titulo[0].text}`}
+        title={`Notícia - ${post.data.titulo[0].text}`}
         description={post.data.descricao[0].text}
         image={post.data.image.url}
         link={link}

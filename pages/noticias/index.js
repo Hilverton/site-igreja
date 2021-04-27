@@ -100,7 +100,7 @@ export default function Noticias({ posts, search }) {
   return (
     <>
       <SEO
-        title='IEADAL-BB2 | Notícia'
+        title='Nossas Notícias'
         description='Listagem das nossas notícias, postagens e eventos.'
         link={link}
       />
