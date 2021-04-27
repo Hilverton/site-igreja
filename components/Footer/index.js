@@ -5,11 +5,15 @@ export default function Footer() {
   return (
     <footer className='p-4 bg-gradient-to-l to-my-blue from-my-green font-sans w-full'>
       <div className='w-11/12 mx-auto flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center md:justify-between items-center'>
-        <img
-          src='/assets/Logo_assembleia.png'
-          className='h-64'
-          alt='logo igreja sede'
-        />
+        <figure className='h-auto w-full'>
+          <Image
+            src='/assets/Logo_assembleia.png'
+            className='h-64 w-full'
+            alt='logo igreja sede'
+            height={256}
+            width={288}
+          />
+        </figure>
         <div>
           <h3 className='text-2xl text-white mb-8'>Nossas mídias</h3>
           <ul className='space-x-4 flex justify-center items-center'>

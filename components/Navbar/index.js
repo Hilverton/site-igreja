@@ -34,11 +34,17 @@ export default function Navbar() {
   return (
     <header className='py-4 bg-gradient-to-l to-my-blue from-my-green font-sans fixed z-50 top-0 w-full'>
       <nav className='flex-col md:flex-row md:flex md:items-center md:justify-between text-white w-11/12 mx-auto'>
-        <img
-          src='/assets/Logo_ad_local.png'
-          className='h-14 lg:h-20'
-          alt='Logo igreja'
-        />
+        <figure className='h-14 lg:h-20 w-80'>
+          <Image
+            src='/assets/Logo_ad_local.png'
+            className='h-full w-auto'
+            alt='Logo igreja'
+            layout='responsive'
+            height={80}
+            width={344}
+            priority
+          />
+        </figure>
         <span
           className='material-icons absolute top-6 right-4 md:hidden text-3xl'
           onClick={() => setOpenMenu(!openMenu)}

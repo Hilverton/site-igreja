@@ -40,6 +40,7 @@ export default function Home({ posts, carousel, souls }) {
                     layout='responsive'
                     height={695}
                     width={1237}
+                    priority
                   />
                 </figure>
               ))}
