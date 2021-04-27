@@ -1,17 +1,15 @@
-import Head from 'next/head';
-import { Layout, Card } from '../components';
+import { Layout, Card, SEO } from '../components';
 
 export default function Departamentos() {
+  const link = 'http://portaladbeneditobentes2.com.br/departamentos';
+
   return (
     <>
-      <Head>
-        <title>IEADAL-BB2 | Nossos departamentos</title>
-        <meta
-          name='og:description'
-          content='Confira os departamentos/ministérios que compõem nossa igreja.'
-          key='ogdesc'
-        />
-      </Head>
+      <SEO
+        title='IEADAL-BB2 | Nossos departamentos'
+        description='Confira os departamentos/ministérios que compõem nossa igreja.'
+        link={link}
+      />
       <Layout>
         <section className='w-11/12 mx-auto py-6'>
           {false && (

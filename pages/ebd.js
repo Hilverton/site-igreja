@@ -1,17 +1,15 @@
-import Head from 'next/head';
-import { Layout, Card } from '../components';
+import { Layout, Card, SEO } from '../components';
 
 export default function Ebd() {
+  const link = 'http://portaladbeneditobentes2.com.br/ebd';
+
   return (
     <>
-      <Head>
-        <title>IEADAL-BB2 | Lições EBD</title>
-        <meta
-          name='og:description'
-          content='Lições da Escola Bíblica Dominical'
-          key='ogdesc'
-        />
-      </Head>
+      <SEO
+        title='IEADAL-BB2 | Escola Bíblica Dominical'
+        description='Tudo sobre os eventos e principais acontecimentos da nossa escola bíblica dominical.'
+        link={link}
+      />
       <Layout>
         <section className='w-11/12 mx-auto py-6'>
           {false && (

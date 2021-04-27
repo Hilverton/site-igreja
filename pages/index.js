@@ -1,7 +1,6 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card, Layout } from '../components';
+import { Card, Layout, SEO } from '../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../prismic-configuration';
 import Slider from 'react-slick';
@@ -16,16 +15,15 @@ export default function Home({ posts, carousel, souls }) {
     autoplay: true,
   };
 
+  const link = 'http://portaladbeneditobentes2.com.br/';
+
   return (
     <>
-      <Head>
-        <title>Igreja Assembleia de Deus no Benedito Bentes 2</title>
-        <meta
-          name='og:description'
-          content='Página inicial da Assembleia de Deus no Benedito Bentes 2. Confira nossos eventos, nossas postagens, horários e dias de cultos.'
-          key='ogdesc'
-        />
-      </Head>
+      <SEO
+        title='IEADAL-BB2 | Igreja Assembleia de Deus no Benedito Bentes 2'
+        description='Página inicial da Assembleia de Deus no Benedito Bentes 2. Confira nossos eventos, nossas postagens, horários e dias de cultos.'
+        link={link}
+      />
       <Layout>
         <div className='w-full py-2'>
           <section className='z-0 rounded-lg w-11/12 mx-auto overflow-hidden my-6'>

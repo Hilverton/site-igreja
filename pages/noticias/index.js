@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Layout, Card } from '../../components';
+import { Layout, Card, SEO } from '../../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../../prismic-configuration';
 
@@ -96,17 +95,15 @@ export default function Noticias({ posts, search }) {
     });
   }
 
+  const link = 'http://portaladbeneditobentes2.com.br/noticias';
+
   return (
     <>
-      <Head>
-        <title>IEADAL-BB2 | Notícias</title>
-        <meta property='og:title' content='Notícias' key='ogtitle' />
-        <meta
-          name='og:description'
-          content='Listagem das nossas notícias, postagens e eventos.'
-          key='ogdesc'
-        />
-      </Head>
+      <SEO
+        title='IEADAL-BB2 | Notícia'
+        description='Listagem das nossas notícias, postagens e eventos.'
+        link={link}
+      />
       <Layout>
         <section className='w-11/12 mx-auto py-6'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>

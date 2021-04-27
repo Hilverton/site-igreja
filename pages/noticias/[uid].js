@@ -1,27 +1,19 @@
-import Head from 'next/head';
 import Image from 'next/image';
-import { Layout, Card } from '../../components';
+import { Layout, Card, SEO } from '../../components';
 import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
 import { client } from '../../prismic-configuration';
 
 export default function Noticia({ post, posts }) {
+  const link = `http://portaladbeneditobentes2.com.br/${post.uid}`;
   return (
     <>
-      <Head>
-        <title>IEADAL-BB2 | Notícia - {post.data.titulo[0].text}</title>
-        <meta property='og:image' content={post.data.image.url} key='ogimage' />
-        <meta
-          property='og:title'
-          content={post.data.titulo[0].text}
-          key='ogtitle'
-        />
-        <meta
-          name='og:description'
-          content={post.data.descricao[0].text}
-          key='ogdesc'
-        />
-      </Head>
+      <SEO
+        title={`IEADAL-BB2 | Notícia - ${post.data.titulo[0].text}`}
+        description={post.data.descricao[0].text}
+        image={post.data.image.url}
+        link={link}
+      />
       <Layout>
         <section className='w-11/12 mx-auto py-6'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 space-y-6 md:space-y-0 md:gap-6'>
