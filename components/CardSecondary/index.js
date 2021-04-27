@@ -1,19 +1,27 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Card({ title, imgUrl, altImg, description, slug }) {
+export default function CardSecondary({
+  title,
+  imgUrl,
+  altImg,
+  description,
+  slug,
+  big,
+}) {
+  const isBig = big ? 'md:flex md:p-6 ' : 'h-full';
+  const imgRounded = big && 'md:rounded-lg';
+  const body = big ? 'p-6 md:py-2 md:pl-6 md:pr-3' : 'p-6';
+
   return (
-    <div className='border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white'>
-      <figure className='h-auto w-full'>
-        <Image
-          className='w-full h-full object-fill'
-          src={imgUrl}
-          alt={altImg}
-          height={218}
-          width={392}
-        />
+    <div
+      className={`${isBig} border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white`}
+    >
+      <figure
+        className={`h-auto max-h-64 min-w-min max-w-md ${imgRounded} overflow-hidden`}
+      >
+        <img className='w-full h-full object-fill' src={imgUrl} alt={altImg} />
       </figure>
-      <div className='p-6'>
+      <div className={body}>
         <h1 className='title-font text-lg font-medium text-gray-900 mb-3'>
           {title}
         </h1>
