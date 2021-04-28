@@ -95,7 +95,7 @@ export default function Noticias({ posts, search }) {
     });
   }
 
-  const link = 'http://portaladbeneditobentes2.com.br/noticias';
+  const link = 'https://www.portaladbeneditobentes2.com.br/noticias';
 
   return (
     <>

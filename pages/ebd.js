@@ -1,7 +1,7 @@
 import { Layout, Card, SEO } from '../components';
 
 export default function Ebd() {
-  const link = 'http://portaladbeneditobentes2.com.br/ebd';
+  const link = 'https://www.portaladbeneditobentes2.com.br/ebd';
 
   return (
     <>

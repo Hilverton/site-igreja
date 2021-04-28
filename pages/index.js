@@ -16,7 +16,7 @@ export default function Home({ posts, carousel, souls }) {
     autoplay: true,
   };
 
-  const link = 'http://portaladbeneditobentes2.com.br/';
+  const link = 'https://www.portaladbeneditobentes2.com.br/';
 
   return (
     <>

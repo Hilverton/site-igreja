@@ -5,7 +5,7 @@ import { RichText } from 'prismic-reactjs';
 import { client } from '../../prismic-configuration';
 
 export default function Noticia({ post, posts }) {
-  const link = `http://portaladbeneditobentes2.com.br/${post.uid}`;
+  const link = `https://www.portaladbeneditobentes2.com.br/${post.uid}`;
   return (
     <>
       <SEO

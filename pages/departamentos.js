@@ -1,7 +1,7 @@
 import { Layout, Card, SEO } from '../components';
 
 export default function Departamentos() {
-  const link = 'http://portaladbeneditobentes2.com.br/departamentos';
+  const link = 'https://www.portaladbeneditobentes2.com.br/departamentos';
 
   return (
     <>
