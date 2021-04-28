@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 import { Card, Layout, SEO } from '../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../prismic-configuration';
@@ -24,6 +25,12 @@ export default function Home({ posts, carousel, souls }) {
         description='Página inicial da Assembleia de Deus no Benedito Bentes 2. Confira nossos eventos, nossas postagens, horários e dias de cultos.'
         link={link}
       />
+      <Head>
+        <meta
+          name='google-site-verification'
+          content='PX3cmViKZZAZ--LX_vPwyb-rQYu-2z4bhpBS5RE08-o'
+        />
+      </Head>
       <Layout>
         <div className='w-full py-2'>
           <section className='z-0 rounded-lg w-11/12 mx-auto overflow-hidden my-6'>
