@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function CardSecondary({
@@ -17,11 +18,19 @@ export default function CardSecondary({
       className={`${isBig} border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white`}
     >
       <figure
-        className={`h-auto max-h-64 min-w-min max-w-md ${imgRounded} overflow-hidden`}
+        className={`h-auto max-h-64 w-full md:w-1/2 ${imgRounded} overflow-hidden`}
       >
-        <img className='w-full h-full object-fill' src={imgUrl} alt={altImg} />
+        <Image
+          className='w-full h-full'
+          src={imgUrl}
+          alt={altImg}
+          layout='responsive'
+          height={252}
+          width={448}
+          priority
+        />
       </figure>
-      <div className={body}>
+      <div className={`${body} w-full md:w-1/2`}>
         <h1 className='title-font text-lg font-medium text-gray-900 mb-3'>
           {title}
         </h1>
