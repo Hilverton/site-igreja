@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const urls = [
   {
@@ -39,6 +38,7 @@ export default function Navbar() {
           className='h-14 lg:h-20'
           alt='Logo igreja'
         />
+
         <span
           className='material-icons absolute top-6 right-4 md:hidden text-3xl'
           onClick={() => setOpenMenu(!openMenu)}

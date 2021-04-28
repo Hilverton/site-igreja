@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Layout, Card, SEO } from '../../components';
+import { Layout, CardSecondary, SEO } from '../../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../../prismic-configuration';
 
@@ -111,7 +111,7 @@ export default function Noticias({ posts, search }) {
               {posts.results.length !== 0 ? (
                 posts.results.map((post) => {
                   return (
-                    <Card
+                    <CardSecondary
                       key={post.id}
                       title={post.data.titulo[0].text}
                       description={post.data.descricao[0].text}
