@@ -32,6 +32,7 @@ export default function Footer() {
                       alt={linkSocial.alt}
                       height={36}
                       width={36}
+                      priority
                     />
                   </figure>
                 </a>

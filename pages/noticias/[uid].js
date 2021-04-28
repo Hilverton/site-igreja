@@ -68,7 +68,7 @@ export default function Noticia({ post, posts }) {
             </div>
             <div className='flex flex-col'>
               <h1 className='font-bold text-xl mb-6'>Relacionados</h1>
-              <div className='grid grid-cols-1 md:grid-rows-1 gap-6'>
+              <div className='grid grid-cols-1 sm:grid-rows-1 md:grid-rows-1 gap-6'>
                 {posts.length !== 0 ? (
                   posts.results.map((post) => {
                     return (

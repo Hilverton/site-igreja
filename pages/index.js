@@ -62,6 +62,7 @@ export default function Home({ posts, carousel, souls }) {
                   layout='fill'
                   objectFit='contain'
                   className='w-full'
+                  priority
                 />
               </div>
             </div>

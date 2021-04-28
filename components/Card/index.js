@@ -6,11 +6,11 @@ export default function Card({ title, imgUrl, altImg, description, slug }) {
     <div className='border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white'>
       <figure className='h-auto w-full'>
         <Image
-          className='w-full h-full object-fill'
+          className='w-full h-full'
           src={imgUrl}
           alt={altImg}
-          height={218}
-          width={392}
+          height={362}
+          width={640}
         />
       </figure>
       <div className='p-6'>
