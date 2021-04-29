@@ -14,7 +14,7 @@ export default function SEO({ title, description, image = '', link }) {
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <meta
         name='title'
-        content='https://portaladbeneditobentes2.com.br/ - Igreja Assembleia de Deus no Benedito Bentes 2'
+        content='Igreja Assembleia de Deus no Benedito Bentes 2'
       />
       {description && <meta name='description' content={description} />}
       {image && <meta name='image' content={image} />}
@@ -24,6 +24,14 @@ export default function SEO({ title, description, image = '', link }) {
       <meta name='msapplication-TileColor' content='#121214' />
       <meta name='referrer' content='no-referrer-when-downgrade' />
       <meta name='google' content='notranslate' />
+      <meta name='robots' content='index, follow' />
+      <meta name='revisit-after' content='1 days' />
+      <meta
+        name='keywords'
+        content='notícias, notícia, Alagoas, Maceió, Benedito Bentes 2, Edição Online, Assembleia, Assembleia de Deus, igreja, evangelho, igreja evangélica'
+      />
+      <meta name='classification' content='Portal de notícias' />
+      <meta name='distribution' content='global' />
       <meta property='og:title' content={pageTitle} />
       <meta property='og:description' content={description} />
       <meta property='og:locale' content='pt_BR' />
