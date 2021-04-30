@@ -5,7 +5,7 @@ import { linksSocials } from '../../utils';
 export default function Footer() {
   return (
     <footer className='p-4 bg-gradient-to-l to-my-blue from-my-green font-sans w-full'>
-      <div className='w-11/12 mx-auto flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center md:justify-between items-center'>
+      <div className='w-11/12 lg:max-w-5xl mx-auto flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center md:justify-between items-center'>
         <div>
           <Link href='/'>
             <figure className='h-auto w-full cursor-pointer'>

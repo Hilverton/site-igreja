@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <header className='py-4 bg-gradient-to-l to-my-blue from-my-green font-sans fixed z-50 top-0 w-full'>
-      <nav className='flex-col md:flex-row md:flex md:items-center md:justify-between text-white w-11/12 mx-auto'>
+      <nav className='flex-col md:flex-row md:flex md:items-center md:justify-between text-white w-11/12 lg:max-w-5xl mx-auto'>
         <Link href='/'>
           <img
             src='/assets/Logo_ad_local.png'

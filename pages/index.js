@@ -33,7 +33,7 @@ export default function Home({ posts, carousel, souls }) {
       </Head>
       <Layout>
         <div className='w-full py-2'>
-          <section className='z-0 rounded-lg w-11/12 mx-auto overflow-hidden my-6'>
+          <section className='z-0 rounded-lg w-11/12 lg:max-w-5xl mx-auto overflow-hidden my-6'>
             <Slider {...settings}>
               {carousel.results.map((banner) => (
                 <figure
@@ -54,7 +54,7 @@ export default function Home({ posts, carousel, souls }) {
             </Slider>
           </section>
           <section className='mb-6 w-full bg-gradient-to-l to-my-orange from-my-yellow py-8'>
-            <div className='w-11/12 mx-auto flex flex-col md:flex-row md:justify-between items-center'>
+            <div className='w-11/12 lg:max-w-5xl mx-auto flex flex-col md:flex-row md:justify-between items-center'>
               <div className='w-full order-2 md:order-1 text-8xl md:w-1/2'>
                 <p className='text-white text-center text-2xl md:text-4xl'>
                   {souls.results[0].data.numero} almas alcançadas
@@ -74,7 +74,7 @@ export default function Home({ posts, carousel, souls }) {
               </div>
             </div>
           </section>
-          <section className='mb-6 w-11/12 mx-auto'>
+          <section className='mb-6 w-11/12 lg:max-w-5xl mx-auto'>
             <div className='flex justify-between items-center mb-6'>
               <h1 className='text-3xl'>Últimas notícias</h1>
               <Link href='/noticias'>

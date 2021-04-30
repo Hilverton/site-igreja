@@ -105,7 +105,7 @@ export default function Noticias({ posts, search }) {
         link={link}
       />
       <Layout>
-        <section className='w-11/12 mx-auto py-6'>
+        <section className='w-11/12 lg:max-w-5xl mx-auto py-6'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
             <div className='col-span-1 md:col-span-2 space-y-6'>
               {posts.results.length !== 0 ? (

@@ -15,7 +15,7 @@ export default function Noticia({ post, posts }) {
         link={link}
       />
       <Layout>
-        <section className='w-11/12 mx-auto py-6'>
+        <section className='w-11/12 lg:max-w-5xl mx-auto py-6'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 space-y-6 md:space-y-0 md:gap-6'>
             <div className='col-span-2 content'>
               <h1 className='font-bold text-2xl mb-2'>
