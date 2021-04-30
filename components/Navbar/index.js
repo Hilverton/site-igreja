@@ -33,12 +33,13 @@ export default function Navbar() {
   return (
     <header className='py-4 bg-gradient-to-l to-my-blue from-my-green font-sans fixed z-50 top-0 w-full'>
       <nav className='flex-col md:flex-row md:flex md:items-center md:justify-between text-white w-11/12 mx-auto'>
-        <img
-          src='/assets/Logo_ad_local.png'
-          className='h-14 lg:h-20'
-          alt='Logo igreja'
-        />
-
+        <Link href='/'>
+          <img
+            src='/assets/Logo_ad_local.png'
+            className='h-14 lg:h-20 cursor-pointer'
+            alt='Logo igreja'
+          />
+        </Link>
         <span
           className='material-icons absolute top-6 right-4 md:hidden text-3xl'
           onClick={() => setOpenMenu(!openMenu)}
@@ -60,14 +61,13 @@ export default function Navbar() {
                   : 'text-white hover:text-black hover:bg-white';
 
               return (
-                <li
-                  key={url.id}
-                  className={`${active} p-2 md:px-5 rounded-lg uppercase duration-300 cursor-pointer`}
-                >
-                  <Link href={url.path}>
+                <Link key={url.id} href={url.path}>
+                  <li
+                    className={`${active} p-2 md:px-5 rounded-lg uppercase duration-300 cursor-pointer`}
+                  >
                     <a>{url.title}</a>
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               );
             })}
           </ul>
