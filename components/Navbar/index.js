@@ -41,10 +41,19 @@ export default function Navbar() {
           />
         </Link>
         <span
-          className='material-icons absolute top-6 right-4 md:hidden text-3xl'
+          className='absolute top-7 right-4 sm:right-7 md:hidden text-3xl'
           onClick={() => setOpenMenu(!openMenu)}
         >
-          menu
+          <svg
+            className='fill-current h-8 w-8 text-white'
+            xmlns='http://www.w3.org/2000/svg'
+            width='20'
+            height='20'
+            viewBox='0 0 20 20'
+          >
+            <title>menu</title>
+            <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
+          </svg>
         </span>
         <div className={`${isOpen} transition-all duration-300 md:flex h-auto`}>
           <ul
