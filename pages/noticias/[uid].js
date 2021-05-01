@@ -5,7 +5,7 @@ import { RichText } from 'prismic-reactjs';
 import { client } from '../../prismic-configuration';
 
 export default function Noticia({ post, posts }) {
-  const link = `https://www.portaladbeneditobentes2.com.br/${post.uid}`;
+  const link = `https://www.portaladbeneditobentes2.com.br/noticias/${post.uid}`;
   return (
     <>
       <SEO
@@ -66,9 +66,9 @@ export default function Noticia({ post, posts }) {
                 <span className='ml-4'>{post.data.nome_do_autor[0].text}</span>
               </div>
             </div>
-            <div className='flex flex-col'>
+            <div className='col-span-2 md:col-span-1'>
               <h1 className='font-bold text-xl mb-6'>Relacionados</h1>
-              <div className='grid grid-cols-1 sm:grid-rows-1 md:grid-rows-1 gap-6'>
+              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6'>
                 {posts.length !== 0 ? (
                   posts.results.map((post) => {
                     return (
