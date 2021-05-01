@@ -33,28 +33,27 @@ export default function Navbar() {
   return (
     <header className='py-4 bg-gradient-to-l to-my-blue from-my-green font-sans fixed z-50 top-0 w-full'>
       <nav className='flex-col md:flex-row md:flex md:items-center md:justify-between text-white w-11/12 lg:max-w-5xl mx-auto'>
-        <Link href='/'>
-          <img
-            src='/assets/Logo_ad_local.png'
-            className='h-14 lg:h-20 cursor-pointer'
-            alt='Logo igreja'
-          />
-        </Link>
-        <span
-          className='absolute top-7 right-4 sm:right-7 md:hidden text-3xl'
-          onClick={() => setOpenMenu(!openMenu)}
-        >
-          <svg
-            className='fill-current h-8 w-8 text-white'
-            xmlns='http://www.w3.org/2000/svg'
-            width='20'
-            height='20'
-            viewBox='0 0 20 20'
-          >
-            <title>menu</title>
-            <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
-          </svg>
-        </span>
+        <div className='flex justify-between items-center'>
+          <Link href='/'>
+            <img
+              src='/assets/Logo_ad_local.png'
+              className='h-14 lg:h-20 cursor-pointer'
+              alt='Logo igreja'
+            />
+          </Link>
+          <span className='md:hidden' onClick={() => setOpenMenu(!openMenu)}>
+            <svg
+              className='fill-current h-8 w-8 text-white'
+              xmlns='http://www.w3.org/2000/svg'
+              width='20'
+              height='20'
+              viewBox='0 0 20 20'
+            >
+              <title>menu</title>
+              <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
+            </svg>
+          </span>
+        </div>
         <div className={`${isOpen} transition-all duration-300 md:flex h-auto`}>
           <ul
             className={`${
