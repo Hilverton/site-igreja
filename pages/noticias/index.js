@@ -51,6 +51,9 @@ export default function Noticias({ posts, search }) {
   const router = useRouter();
   const [filt, setFilt] = useState(filter);
 
+  const firstPage = posts.page === 1;
+  const lastPage = posts.page === posts.total_pages;
+
   function filter() {
     let nFilter = filters;
     const newFilter = nFilter.map((filter) => {
@@ -64,16 +67,19 @@ export default function Noticias({ posts, search }) {
     return newFilter;
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    let stringSearch = [];
-    const search = filt.filter((itemFilter) => {
+  function handleFilterTags() {
+    let tags = [];
+    filt.filter((itemFilter) => {
       if (itemFilter.value === true) {
-        stringSearch.push(itemFilter.name);
+        tags.push(itemFilter.name);
       }
     });
+    return tags;
+  }
 
-    const tags = stringSearch;
+  function handleSubmit(e) {
+    e.preventDefault();
+    const tags = handleFilterTags();
 
     router.push({
       pathname: '/noticias',
@@ -84,14 +90,40 @@ export default function Noticias({ posts, search }) {
   }
 
   function handleCheckbox(e) {
-    const { name, value } = e.target;
-    console.log(name, value);
+    const { name } = e.target;
+
     let newFilt = filt;
     newFilt.map((nfilt) => {
       if (nfilt.name === name) {
         nfilt.value = !nfilt.value;
       }
       setFilt(newFilt);
+    });
+  }
+
+  function prevPage() {
+    if (firstPage) return;
+    const tags = handleFilterTags();
+
+    router.push({
+      pathname: '/noticias',
+      query: {
+        pagina: posts.page - 1,
+        tags,
+      },
+    });
+  }
+
+  function nextPage() {
+    if (lastPage) return;
+    const tags = handleFilterTags();
+
+    router.push({
+      pathname: '/noticias',
+      query: {
+        pagina: posts.page + 1,
+        tags,
+      },
     });
   }
 
@@ -109,19 +141,70 @@ export default function Noticias({ posts, search }) {
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
             <div className='col-span-1 md:col-span-2 space-y-6'>
               {posts.results.length !== 0 ? (
-                posts.results.map((post) => {
-                  return (
-                    <CardSecondary
-                      key={post.id}
-                      title={post.data.titulo[0].text}
-                      description={post.data.descricao[0].text}
-                      imgUrl={post.data.image.url}
-                      altImg={post.data.image.alt}
-                      slug={post.uid}
-                      big
-                    />
-                  );
-                })
+                <>
+                  {posts.results.map((post) => {
+                    return (
+                      <CardSecondary
+                        key={post.id}
+                        title={post.data.titulo[0].text}
+                        description={post.data.descricao[0].text}
+                        imgUrl={post.data.image.url}
+                        altImg={post.data.image.alt}
+                        slug={post.uid}
+                        big
+                      />
+                    );
+                  })}
+                  {posts.total_pages > 1 && (
+                    <section className='flex justify-center items-center space-x-4'>
+                      <button
+                        className={`bg-white p-2 rounded-md border border-gray-200 ${
+                          firstPage && 'bg-gray-300'
+                        }`}
+                        disabled={firstPage}
+                        onClick={prevPage}
+                      >
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          width='100%'
+                          height='100%'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                          strokeWidth='2'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          className='feather feather-chevron-left w-6 h-6'
+                        >
+                          <polyline points='15 18 9 12 15 6'></polyline>
+                        </svg>
+                      </button>
+                      <p>Página: {posts.page}</p>
+                      <button
+                        className={`bg-white p-2 rounded-md border border-gray-200 ${
+                          lastPage && 'bg-gray-300'
+                        }`}
+                        disabled={lastPage}
+                        onClick={nextPage}
+                      >
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          width='100%'
+                          height='100%'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                          strokeWidth='2'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          className='feather feather-chevron-right w-6 h-6'
+                        >
+                          <polyline points='9 18 15 12 9 6'></polyline>
+                        </svg>
+                      </button>
+                    </section>
+                  )}
+                </>
               ) : (
                 <h1 className='text-lg'>Nenhuma notícia foi encontrada</h1>
               )}
@@ -169,9 +252,14 @@ export default function Noticias({ posts, search }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const { tags } = context.query;
+  const { tags, pagina = 1 } = context.query;
   let posts = [];
   let search = [];
+
+  const options = {
+    orderings: '[document.first_publication_date desc]',
+    page: pagina,
+  };
   if (tags !== undefined) {
     search = typeof tags === 'string' ? [tags] : tags;
     posts = await client.query(
@@ -179,12 +267,12 @@ export const getServerSideProps = async (context) => {
         Prismic.Predicates.at('document.type', 'blog_post'),
         Prismic.Predicates.any('document.tags', search),
       ],
-      { orderings: '[document.first_publication_date desc]' },
+      options,
     );
   } else {
     posts = await client.query(
       Prismic.Predicates.at('document.type', 'blog_post'),
-      { orderings: '[document.first_publication_date desc]' },
+      options,
     );
   }
 
