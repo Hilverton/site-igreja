@@ -5,7 +5,7 @@ import { RichText } from 'prismic-reactjs';
 import { client } from '../../prismic-configuration';
 
 export default function Noticia({ post, posts }) {
-  const link = `https://www.portaladbeneditobentes2.com.br/${post.uid}`;
+  const link = `https://www.portaladbeneditobentes2.com.br/noticias/${post.uid}`;
   return (
     <>
       <SEO
@@ -15,7 +15,7 @@ export default function Noticia({ post, posts }) {
         link={link}
       />
       <Layout>
-        <section className='w-11/12 mx-auto py-6'>
+        <section className='w-11/12 lg:max-w-5xl mx-auto py-6'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 space-y-6 md:space-y-0 md:gap-6'>
             <div className='col-span-2 content'>
               <h1 className='font-bold text-2xl mb-2'>
@@ -66,9 +66,9 @@ export default function Noticia({ post, posts }) {
                 <span className='ml-4'>{post.data.nome_do_autor[0].text}</span>
               </div>
             </div>
-            <div className='flex flex-col'>
+            <div className='col-span-2 md:col-span-1'>
               <h1 className='font-bold text-xl mb-6'>Relacionados</h1>
-              <div className='grid grid-cols-1 sm:grid-rows-1 md:grid-rows-1 gap-6'>
+              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6'>
                 {posts.length !== 0 ? (
                   posts.results.map((post) => {
                     return (
@@ -121,6 +121,7 @@ export const getStaticProps = async ({ params }) => {
     [
       Prismic.Predicates.at('document.type', 'blog_post'),
       Prismic.Predicates.not('my.blog_post.uid', `${params.uid}`),
+      Prismic.Predicates.any('document.tags', post.tags),
     ],
     { orderings: '[document.first_publication_date desc]', pageSize: 2 },
   );

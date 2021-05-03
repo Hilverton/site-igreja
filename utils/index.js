@@ -18,3 +18,69 @@ export const linksSocials = [
     img: '/assets/socials/f_logo.png',
   },
 ];
+
+export const urls = [
+  {
+    id: 1,
+    path: '/',
+    title: 'Início',
+  },
+  {
+    id: 2,
+    path: '/departamentos',
+    title: 'Departamentos',
+  },
+  {
+    id: 3,
+    path: '/ebd',
+    title: 'Ebd',
+  },
+  {
+    id: 4,
+    path: '/noticias',
+    title: 'Notícias',
+  },
+];
+
+export const filters = [
+  {
+    id: 1,
+    name: 'Senhoras',
+    value: false,
+  },
+  {
+    id: 2,
+    name: 'Senhores',
+    value: false,
+  },
+  {
+    id: 3,
+    name: 'Jovens',
+    value: false,
+  },
+  {
+    id: 4,
+    name: 'Crianças',
+    value: false,
+  },
+  {
+    id: 5,
+    name: 'Doutrina',
+    value: false,
+  },
+  {
+    id: 6,
+    name: 'Família',
+    value: false,
+  },
+  {
+    id: 7,
+    name: 'Missões',
+    value: false,
+  },
+  {
+    id: 8,
+    name: 'Ebd',
+    value: false,
+  },
+];

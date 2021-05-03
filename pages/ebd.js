@@ -11,7 +11,7 @@ export default function Ebd() {
         link={link}
       />
       <Layout>
-        <section className='w-11/12 mx-auto py-6'>
+        <section className='w-11/12 lg:max-w-5xl mx-auto py-6'>
           {false && (
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
               <Card title='Lição de Adultos' />
