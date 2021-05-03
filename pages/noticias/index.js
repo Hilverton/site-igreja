@@ -3,49 +3,7 @@ import { useRouter } from 'next/router';
 import { Layout, CardSecondary, SEO } from '../../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../../prismic-configuration';
-
-const filters = [
-  {
-    id: 1,
-    name: 'Senhoras',
-    value: false,
-  },
-  {
-    id: 2,
-    name: 'Senhores',
-    value: false,
-  },
-  {
-    id: 3,
-    name: 'Jovens',
-    value: false,
-  },
-  {
-    id: 4,
-    name: 'Crianças',
-    value: false,
-  },
-  {
-    id: 5,
-    name: 'Doutrina',
-    value: false,
-  },
-  {
-    id: 6,
-    name: 'Família',
-    value: false,
-  },
-  {
-    id: 7,
-    name: 'Missões',
-    value: false,
-  },
-  {
-    id: 8,
-    name: 'Ebd',
-    value: false,
-  },
-];
+import { filters } from '../../utils';
 
 export default function Noticias({ posts, search }) {
   const router = useRouter();

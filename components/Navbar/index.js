@@ -1,29 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-
-const urls = [
-  {
-    id: 1,
-    path: '/',
-    title: 'Início',
-  },
-  {
-    id: 2,
-    path: '/departamentos',
-    title: 'Departamentos',
-  },
-  {
-    id: 3,
-    path: '/ebd',
-    title: 'Ebd',
-  },
-  {
-    id: 4,
-    path: '/noticias',
-    title: 'Notícias',
-  },
-];
+import { urls } from '../../utils';
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
