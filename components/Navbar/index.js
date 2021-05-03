@@ -54,10 +54,10 @@ export default function Navbar() {
             </svg>
           </span>
         </div>
-        <div className={`${isOpen} transition-all duration-300 md:flex h-auto`}>
+        <div className={`${isOpen} transition-all duration-150 md:flex`}>
           <ul
             className={`${
-              openMenu ? 'flex-col space-y-4' : 'hidden'
+              openMenu ? 'block space-y-4' : 'hidden'
             } w-full md:w-min md:flex md:space-x-4`}
           >
             {urls.map((url) => {
