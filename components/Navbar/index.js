@@ -54,7 +54,9 @@ export default function Navbar() {
             </svg>
           </span>
         </div>
-        <div className={`${isOpen} transition-all duration-150 md:flex`}>
+        <div
+          className={`${isOpen} transition-all duration-150 md:flex md:h-auto`}
+        >
           <ul
             className={`${
               openMenu ? 'block space-y-4' : 'hidden'
