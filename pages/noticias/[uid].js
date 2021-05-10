@@ -79,6 +79,7 @@ export default function Noticia({ post, posts }) {
                         imgUrl={post.data.image.url}
                         altImg={post.data.image.alt}
                         slug={post.uid}
+                        navigateTo='noticias'
                       />
                     );
                   })
