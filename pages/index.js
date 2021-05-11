@@ -91,6 +91,7 @@ export default function Home({ posts, carousel, souls }) {
                     imgUrl={post.data.image.url}
                     altImg={post.data.image.alt}
                     slug={post.uid}
+                    navigateTo='noticias'
                   />
                 );
               })}

@@ -5,11 +5,11 @@ import { RichText } from 'prismic-reactjs';
 import { client } from '../../prismic-configuration';
 
 export default function Noticia({ post, posts }) {
-  const link = `https://www.portaladbeneditobentes2.com.br/noticias/${post.uid}`;
+  const link = `https://www.portaladbeneditobentes2.com.br/ebd/${post.uid}`;
   return (
     <>
       <SEO
-        title={`Notícia - ${post.data.titulo[0].text}`}
+        title={`Escola Bíblica Dominical - ${post.data.titulo[0].text}`}
         description={post.data.descricao[0].text}
         image={post.data.image.url}
         link={link}
@@ -51,7 +51,7 @@ export default function Noticia({ post, posts }) {
                     target='_blank'
                     rel='noopener'
                   >
-                    Culto
+                    Evento
                   </a>
                 )}
               </div>
@@ -68,8 +68,13 @@ export default function Noticia({ post, posts }) {
             </div>
             <div className='col-span-2 md:col-span-1'>
               <h1 className='font-bold text-xl mb-6'>Relacionados</h1>
+              {posts.results.length === 0 && (
+                <div className=''>
+                  <h1 className='text-lg'>Sem conteúdo relacionado</h1>
+                </div>
+              )}
               <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6'>
-                {posts.length !== 0 ? (
+                {posts.results.length !== 0 &&
                   posts.results.map((post) => {
                     return (
                       <Card
@@ -79,13 +84,10 @@ export default function Noticia({ post, posts }) {
                         imgUrl={post.data.image.url}
                         altImg={post.data.image.alt}
                         slug={post.uid}
-                        navigateTo='noticias'
+                        navigateTo='ebd'
                       />
                     );
-                  })
-                ) : (
-                  <h1 className='text-lg mx-auto'>Sem conteúdo relacionado</h1>
-                )}
+                  })}
               </div>
             </div>
           </div>
@@ -97,7 +99,7 @@ export default function Noticia({ post, posts }) {
 
 export const getStaticPaths = async () => {
   const posts = await client.query(
-    Prismic.Predicates.at('document.type', 'blog_post'),
+    Prismic.Predicates.at('document.type', 'ebd_post'),
     { orderings: '[my.post.date desc]' },
   );
 
@@ -114,14 +116,14 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const post = await client.getByUID('blog_post', `${params.uid}`, {
+  const post = await client.getByUID('ebd_post', `${params.uid}`, {
     lang: 'pt-br',
   });
 
   const posts = await client.query(
     [
-      Prismic.Predicates.at('document.type', 'blog_post'),
-      Prismic.Predicates.not('my.blog_post.uid', `${params.uid}`),
+      Prismic.Predicates.at('document.type', 'ebd_post'),
+      Prismic.Predicates.not('my.ebd_post.uid', `${params.uid}`),
       Prismic.Predicates.any('document.tags', post.tags),
     ],
     { orderings: '[document.first_publication_date desc]', pageSize: 2 },

@@ -1,7 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Card({ title, imgUrl, altImg, description, slug }) {
+export default function Card({
+  title,
+  imgUrl,
+  altImg,
+  description,
+  slug,
+  navigateTo,
+}) {
   return (
     <div className='border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white'>
       <figure className='h-auto w-full'>
@@ -19,7 +26,7 @@ export default function Card({ title, imgUrl, altImg, description, slug }) {
         </h1>
         <p className='leading-relaxed mb-3'>{description}</p>
         <div className='flex items-center flex-wrap '>
-          <Link href={`/noticias/${slug}`}>
+          <Link href={`/${navigateTo}/${slug}`}>
             <a className='text-my-blue inline-flex items-center md:mb-2 lg:mb-0'>
               Leia mais
               <svg
