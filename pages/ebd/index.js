@@ -5,6 +5,31 @@ import { Layout, Card, SEO } from '../../components';
 export default function Ebd({ posts }) {
   const link = 'https://www.portaladbeneditobentes2.com.br/ebd';
 
+  const firstPage = posts.page === 1;
+  const lastPage = posts.page === posts.total_pages;
+
+  function prevPage() {
+    if (firstPage) return;
+
+    router.push({
+      pathname: '/ebd',
+      query: {
+        pagina: posts.page - 1,
+      },
+    });
+  }
+
+  function nextPage() {
+    if (lastPage) return;
+
+    router.push({
+      pathname: '/ebd',
+      query: {
+        pagina: posts.page + 1,
+      },
+    });
+  }
+
   return (
     <>
       <SEO
@@ -33,6 +58,15 @@ export default function Ebd({ posts }) {
                     />
                   );
                 })}
+                {posts.total_pages > 1 && (
+                  <Pagination
+                    firstPage={firstPage}
+                    page={posts.page}
+                    lastPage={lastPage}
+                    prevClick={prevPage}
+                    nextClick={nextPage}
+                  />
+                )}
               </>
             ) : (
               <h1 className='text-lg'>Nenhuma notícia foi encontrada</h1>
@@ -44,9 +78,13 @@ export default function Ebd({ posts }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
+  const { pagina = 1 } = context.query;
+
   const options = {
     orderings: '[document.first_publication_date desc]',
+    page: pagina,
+    pageSize: 9,
   };
 
   const posts = await client.query(
