@@ -1,11 +1,16 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { Layout, SEO, RelatedContent } from '../../components';
 import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
 import { client } from '../../prismic-configuration';
 
 export default function Noticia({ post, posts }) {
+  const router = useRouter();
+  if (router.isFallback) return <div>Carregando...</div>;
+
   const link = `https://www.portaladbeneditobentes2.com.br/ebd/${post.uid}`;
+
   return (
     <>
       <SEO
@@ -67,10 +72,7 @@ export default function Noticia({ post, posts }) {
               </div>
             </div>
             <div className='col-span-2 md:col-span-1'>
-              <RelatedContent
-                contents={posts.results}
-                navigateToPage='ebd'
-              />
+              <RelatedContent contents={posts.results} navigateToPage='ebd' />
             </div>
           </div>
         </section>
@@ -93,7 +95,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths: allBlogPosts,
-    fallback: false,
+    fallback: true,
   };
 };
 
