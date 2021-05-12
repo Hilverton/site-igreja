@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Layout, Card, SEO } from '../../components';
+import { Layout, SEO, RelatedContent } from '../../components';
 import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
 import { client } from '../../prismic-configuration';
@@ -67,26 +67,10 @@ export default function Noticia({ post, posts }) {
               </div>
             </div>
             <div className='col-span-2 md:col-span-1'>
-              <h1 className='font-bold text-xl mb-6'>Relacionados</h1>
-              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6'>
-                {posts.length !== 0 ? (
-                  posts.results.map((post) => {
-                    return (
-                      <Card
-                        key={post.id}
-                        title={post.data.titulo[0].text}
-                        description={post.data.descricao[0].text}
-                        imgUrl={post.data.image.url}
-                        altImg={post.data.image.alt}
-                        slug={post.uid}
-                        navigateTo='noticias'
-                      />
-                    );
-                  })
-                ) : (
-                  <h1 className='text-lg mx-auto'>Sem conteúdo relacionado</h1>
-                )}
-              </div>
+              <RelatedContent
+                contents={posts.results}
+                navigateToPage='noticias'
+              />
             </div>
           </div>
         </section>
