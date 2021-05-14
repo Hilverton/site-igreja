@@ -1,7 +1,6 @@
 import Card from '../Card';
 
 export default function RelatedContent({ contents, navigateToPage }) {
-  console.log(contents);
   return (
     <>
       <h1 className='font-bold text-xl mb-6'>Relacionados</h1>
