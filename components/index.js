@@ -6,6 +6,7 @@ import SEO from './SEO';
 import Pagination from './Pagination';
 import RelatedContent from './RelatedContent';
 import PostBlog from './PostBlog';
+import Loading from './Loading';
 
 export {
   Navbar,
@@ -16,4 +17,5 @@ export {
   Pagination,
   RelatedContent,
   PostBlog,
+  Loading,
 };

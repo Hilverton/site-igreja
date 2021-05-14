@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
-import { SEO, RelatedContent, PostBlog } from '../../components';
+import { SEO, RelatedContent, PostBlog, Loading } from '../../components';
 import Prismic from 'prismic-javascript';
 import { client } from '../../prismic-configuration';
 
 export default function Noticia({ post, posts }) {
   const router = useRouter();
-  if (router.isFallback) return <div>Carregando...</div>;
+  if (router.isFallback) return <Loading />;
 
   const link = `https://www.portaladbeneditobentes2.com.br/noticias/${post.uid}`;
 
