@@ -17,7 +17,9 @@ export default function Home({ posts, carousel, souls }) {
   };
 
   const link = 'https://www.portaladbeneditobentes2.com.br/';
-
+  const reached_souls = souls.results[0].data.numero;
+  const isPositive = 50 - reached_souls > 0;
+  const remaining_souls = isPositive ? 50 - reached_souls : 0;
   return (
     <>
       <SEO
@@ -56,10 +58,17 @@ export default function Home({ posts, carousel, souls }) {
           <div className='w-11/12 lg:max-w-5xl mx-auto flex flex-col md:flex-row md:justify-between items-center'>
             <div className='w-full order-2 md:order-1 text-8xl md:w-1/2'>
               <p className='text-white text-center text-2xl md:text-4xl'>
-                {souls.results[0].data.numero} almas alcançadas
+                {reached_souls} almas alcançadas
                 <br />
-                Faltam {50 - souls.results[0].data.numero} almas
+                Faltam {remaining_souls} almas
+                <br />
               </p>
+              {!isPositive && (
+                <p className='text-white text-center text-lg md:text-2xl mt-2'>
+                  Objetivo de 50 almas <br /> atingido e superado! <br />
+                  Glória a Deus!!!
+                </p>
+              )}
             </div>
             <div className='relative order-1 md:order-2 mb-6 md:mb-0 w-full md:w-1/2 h-40'>
               <Image
