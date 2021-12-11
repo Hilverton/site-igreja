@@ -40,6 +40,11 @@ export const urls = [
     path: '/noticias',
     title: 'Notícias',
   },
+  {
+    id: 5,
+    path: '/conjoaad',
+    title: 'Conjoaad',
+  },
 ];
 
 export const filters = [
