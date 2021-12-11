@@ -59,9 +59,6 @@ export default function Home({ posts, carousel, souls }) {
             <div className='w-full order-2 md:order-1 text-8xl md:w-1/2'>
               <p className='text-white text-center text-2xl md:text-4xl'>
                 {reached_souls} almas alcançadas
-                <br />
-                Faltam {remaining_souls} almas
-                <br />
               </p>
               {!isPositive && (
                 <p className='text-white text-center text-lg md:text-2xl mt-2'>
