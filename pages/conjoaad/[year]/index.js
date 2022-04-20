@@ -29,7 +29,7 @@ export default function Ano({ conjoaad, year, posts }) {
                   description={post.data.descricao[0].text}
                   imgUrl={post.data.image.url}
                   altImg={post.data.image.alt}
-                  slug={post.uid}
+                  href={`/conjoaad/${year}/${post.uid}`}
                   big
                 />
               );

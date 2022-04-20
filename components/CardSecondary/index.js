@@ -6,7 +6,7 @@ export default function CardSecondary({
   imgUrl,
   altImg,
   description,
-  slug,
+  href,
   big,
 }) {
   const isBig = big ? 'md:flex md:p-6 ' : 'h-full';
@@ -35,7 +35,7 @@ export default function CardSecondary({
         </h1>
         <p className='leading-relaxed mb-3'>{description}</p>
         <div className='flex items-center flex-wrap '>
-          <Link href={`/noticias/${slug}`}>
+          <Link href={`${href}`}>
             <a className='text-my-blue inline-flex items-center md:mb-2 lg:mb-0'>
               Leia mais
               <svg

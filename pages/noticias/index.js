@@ -107,7 +107,7 @@ export default function Noticias({ posts, search }) {
                       description={post.data.descricao[0].text}
                       imgUrl={post.data.image.url}
                       altImg={post.data.image.alt}
-                      slug={post.uid}
+                      href={`/noticias/${post.uid}`}
                       big
                     />
                   );
