@@ -25,11 +25,11 @@ export const urls = [
     path: '/',
     title: 'Início',
   },
-  {
-    id: 2,
-    path: '/departamentos',
-    title: 'Departamentos',
-  },
+  // {
+  //   id: 2,
+  //   path: '/departamentos',
+  //   title: 'Departamentos',
+  // },
   {
     id: 3,
     path: '/ebd',
@@ -39,6 +39,11 @@ export const urls = [
     id: 4,
     path: '/noticias',
     title: 'Notícias',
+  },
+  {
+    id: 5,
+    path: '/conjoaad',
+    title: 'Conjoaad',
   },
 ];
 
@@ -50,7 +55,7 @@ export const filters = [
   },
   {
     id: 2,
-    name: 'Senhores',
+    name: 'Obreiros',
     value: false,
   },
   {
@@ -80,7 +85,17 @@ export const filters = [
   },
   {
     id: 8,
-    name: 'Ebd',
+    name: 'Ceia',
+    value: false,
+  },
+  {
+    id: 9,
+    name: 'Festa',
+    value: false,
+  },
+  {
+    id: 10,
+    name: 'Evento',
     value: false,
   },
 ];

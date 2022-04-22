@@ -107,7 +107,7 @@ export default function Noticias({ posts, search }) {
                       description={post.data.descricao[0].text}
                       imgUrl={post.data.image.url}
                       altImg={post.data.image.alt}
-                      slug={post.uid}
+                      href={`/noticias/${post.uid}`}
                       big
                     />
                   );
@@ -126,7 +126,7 @@ export default function Noticias({ posts, search }) {
               <h1 className='text-lg'>Nenhuma notícia foi encontrada</h1>
             )}
           </div>
-          <div className='h-80 bg-white rounded-md w-full p-6'>
+          <div className='h-96 bg-white rounded-md w-full p-6'>
             <form
               className='grid grid-cols-2 gap-3 md:gap-5'
               onSubmit={handleSubmit}

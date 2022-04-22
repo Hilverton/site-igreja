@@ -6,7 +6,7 @@ export default function CardSecondary({
   imgUrl,
   altImg,
   description,
-  slug,
+  href,
   big,
 }) {
   const isBig = big ? 'md:flex md:p-6 ' : 'h-full';
@@ -17,15 +17,17 @@ export default function CardSecondary({
       className={`${isBig} border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white`}
     >
       <figure className={`h-auto w-full md:w-1/2 overflow-hidden`}>
-        <Image
-          className='w-full h-full md:rounded-lg'
-          src={imgUrl}
-          alt={altImg}
-          layout='responsive'
-          height={252}
-          width={448}
-          priority
-        />
+        {imgUrl !== '' && (
+          <Image
+            className='w-full h-full md:rounded-lg'
+            src={imgUrl}
+            alt={altImg}
+            layout='responsive'
+            height={252}
+            width={448}
+            priority
+          />
+        )}
       </figure>
       <div className={`${body} w-full md:w-1/2`}>
         <h1 className='title-font text-lg font-medium text-gray-900 mb-3'>
@@ -33,7 +35,7 @@ export default function CardSecondary({
         </h1>
         <p className='leading-relaxed mb-3'>{description}</p>
         <div className='flex items-center flex-wrap '>
-          <Link href={`/noticias/${slug}`}>
+          <Link href={`${href}`}>
             <a className='text-my-blue inline-flex items-center md:mb-2 lg:mb-0'>
               Leia mais
               <svg
