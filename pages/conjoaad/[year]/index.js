@@ -1,4 +1,5 @@
 import Prismic from 'prismic-javascript';
+import Image from 'next/image';
 import { client } from '../../../prismic-configuration';
 import { SEO, CardSecondary } from '../../../components';
 
@@ -11,10 +12,13 @@ export default function Ano({ conjoaad, year, posts }) {
         link=''
       />
       <section className='w-11/12 lg:max-w-5xl mx-auto py-6 md:px-32 min-h-screen'>
-        <img
-          src={conjoaad?.results[0].data.logo.url}
+        <Image
           className='h-auto w-full rounded-md'
-          alt='Logo igreja'
+          src={conjoaad?.results[0].data.logo.url}
+          alt={`Banner do conjoaad do ano de ${year}`}
+          layout='responsive'
+          height={458}
+          width={816}
         />
         <h1 className='text-5xl font-bold text-center mt-8 mb-12'>
           {conjoaad?.results[0].data.tema[0].text}

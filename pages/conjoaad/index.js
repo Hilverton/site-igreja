@@ -1,4 +1,5 @@
 import Prismic from 'prismic-javascript';
+import Link from 'next/link';
 import Image from 'next/image';
 
 import { client } from '../../prismic-configuration';
@@ -18,29 +19,31 @@ export default function Conjoaad({ conjoaads }) {
         </h1>
         <div className='grid grid-cols-1 gap-6'>
           {conjoaads.results.map((conjoaad) => (
-            <article
+            <Link
+              href={`/conjoaad/${conjoaad.data.ano_do_evento[0].text}`}
               key={conjoaad.data.tema}
-              className='p-5 bg-white font-sans rounded-lg cursor-pointer md:flex items-center border-2 border-gray-200'
             >
-              <figure className='rounded-lg md:w-1/3 overflow-hidden'>
-                <Image
-                  className='w-full h-full'
-                  src={conjoaad.data.logo.url}
-                  alt='blog'
-                  layout='responsive'
-                  height={458}
-                  width={816}
-                />
-              </figure>
-              <div className='md:ml-2 mt-4 md:mt-0'>
-                <h2 className='text-2xl md:text-3xl font-bold text-center md:text-left mb-1'>
-                  {conjoaad.data.tema[0].text}
-                </h2>
-                <p className='text-base md:text-lg text-center md:text-left md:ml-2'>
-                  {conjoaad.data.ano_do_evento[0].text}
-                </p>
-              </div>
-            </article>
+              <article className='p-5 bg-white font-sans rounded-lg cursor-pointer md:flex items-center border-2 border-gray-200'>
+                <figure className='rounded-lg md:w-1/3 overflow-hidden'>
+                  <Image
+                    className='w-full h-full'
+                    src={conjoaad.data.logo.url}
+                    alt='blog'
+                    layout='responsive'
+                    height={458}
+                    width={816}
+                  />
+                </figure>
+                <div className='md:ml-2 mt-4 md:mt-0'>
+                  <h2 className='text-2xl md:text-3xl font-bold text-center md:text-left mb-1'>
+                    {conjoaad.data.tema[0].text}
+                  </h2>
+                  <p className='text-base md:text-lg text-center md:text-left md:ml-2'>
+                    {conjoaad.data.ano_do_evento[0].text}
+                  </p>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </section>
